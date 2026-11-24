@@ -1,0 +1,78 @@
+% Compile: xelatex cover_letter.tex
+% Self-contained: no images or other local assets are required.
+% RSOI is described as ongoing work; no completed Go deployment is asserted.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{Liberation Sans}
+\usepackage[left=2.2cm,right=2.2cm,top=1.8cm,bottom=1.8cm]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{setspace}
+
+\definecolor{accent}{HTML}{2B4C7E}
+\definecolor{ink}{HTML}{28313D}
+\definecolor{muted}{HTML}{657080}
+\definecolor{rulecolor}{HTML}{CAD4E1}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
+  pdftitle={Сопроводительное письмо --- Алексеев Даниил},
+  pdfauthor={Алексеев Даниил Александрович},
+  pdfsubject={Стажировка в backend-разработке}
+}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+\setlength{\emergencystretch}{2em}
+\setstretch{1.08}
+\raggedright
+
+\begin{document}
+\color{ink}
+
+% ---------- Personal header ----------
+{\small\color{accent}КАНДИДАТ НА СТАЖИРОВКУ \enspace / \enspace BACKEND}\par
+\vspace{0.1em}
+{\fontsize{23}{27}\selectfont\bfseries Алексеев Даниил}\par
+\vspace{-0.1em}
+{\small\color{muted}
+  Москва \enspace\textbullet\enspace
+  \href{mailto:dalyoksi@yandex.ru}{dalyoksi@yandex.ru}
+  \enspace\textbullet\enspace +7\,911\,420-29-96
+}\par
+\vspace{0.3em}
+{\color{accent}\rule{\textwidth}{1.2pt}}\par
+\vspace{0.5em}
+
+{\fontsize{16}{20}\selectfont\bfseries Сопроводительное письмо}\par
+\vspace{0.25em}
+
+Здравствуйте!
+
+Меня зовут Даниил Алексеев. Учусь в магистратуре МГТУ им. Н.Э. Баумана по направлению «Программная инженерия» и хочу развиваться в backend-разработке.
+
+\textbf{Больше всего меня интересуют компьютерные сети и распределённые системы.} Мне нравится разбираться, как запрос проходит между компонентами приложения, что происходит при недоступности одного из сервисов и как организовать восстановление работы. Особенно интересны межсервисное взаимодействие, асинхронная обработка запросов и согласованность данных.
+
+Хочу заниматься разработкой сервисов и инфраструктурных компонентов: проектировать API, работать с хранилищами и очередями, исследовать причины ошибок и улучшать производительность. Мне важно понимать связь между кодом приложения, сетевым взаимодействием и поведением операционной системы.
+
+Моя основа - C++ и олимпиадное программирование: дважды становился призёром полуфинала ICPC. В командном грантовом проекте разрабатывал REST API, работал с PostgreSQL и контейнеризацией сервисов. Во время оплачиваемой учебной практики создал приложение на Python для расчётов по STL/DXF-моделям с графическим интерфейсом и 3D-визуализацией.
+
+Сейчас работаю над микросервисным проектом на Go в рамках курса «Распределённые системы обработки информации». В нём разбираюсь с обработкой частичных отказов, повторным выполнением запросов и развёртыванием сервисов. Пятый год использую Linux как desktop ОС - Debian и дистрибутивы на базе Ubuntu; углубляю знания сетей через видеолекции и практические задания в eNSP.
+
+На стажировке хочу применить эти знания к задачам реального продукта и пройти полный цикл разработки: от обсуждения решения до тестирования и выпуска. Для меня важны обратная связь по коду, возможность задавать вопросы опытным коллегам и постепенно брать на себя больше ответственности за результат.
+
+Буду рад обсудить задачи команды и подробнее рассказать о своих проектах.
+
+\vspace{0.3em}
+С уважением,\\[0.25em]
+\textbf{Даниил Алексеев}
+
+
+\end{document}

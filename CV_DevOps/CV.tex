@@ -1,0 +1,163 @@
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Encoding / fonts ----------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{Liberation Sans}
+\usepackage{graphicx}
+
+% ---------- Layout ----------
+\usepackage[margin=1.25cm,top=0.55cm,bottom=0.55cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{microtype}
+\sloppy
+\setlength{\parskip}{0.05em}
+
+\definecolor{accent}{HTML}{2B4C7E}
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{midgray}{HTML}{666666}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
+  pdftitle={Алексеев Даниил --- DevOps Intern / SRE Intern},
+  pdfauthor={Алексеев Даниил Александрович}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% ---------- Section styling ----------
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-0.1em}{\color{accent!40}\titlerule}]
+\titlespacing*{\section}{0pt}{0.2em}{0.15em}
+
+\titleformat{\subsection}
+  {\bfseries\color{darkgray}}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{0.25em}{0.05em}
+
+\newcommand{\jobmeta}[1]{{\small\color{midgray}\textit{#1}}\par\vspace{0.05em}}
+\newcommand{\stackline}[1]{\par{\small\color{midgray}Стек: #1}\par}
+\newcommand{\repoline}[1]{\par{\small\color{midgray}Репозиторий: #1}\par}
+% Logos use the same paths as the other CVs. Missing logos do not break compilation.
+\newcommand{\universitylogo}[1]{\IfFileExists{#1}{\includegraphics[width=1.2cm]{#1}}{}}
+
+\setlist[itemize]{leftmargin=1.1em, itemsep=0.05em, topsep=0.1em, parsep=0pt}
+
+\begin{document}
+
+% ----- Header -----
+\begin{center}
+  {\LARGE\bfseries Алексеев Даниил Александрович}\\[0.15em]
+  {\normalsize\color{accent} DevOps Intern / SRE Intern}\\[0.3em]
+  {\small
+    \href{mailto:dalyoksi@yandex.ru}{dalyoksi@yandex.ru}
+    \;\textbullet\; +79114202996 \;\textbullet\; Москва
+    \;\textbullet\; \href{https://github.com/alyoksi}{github.com/alyoksi}
+  }
+\end{center}
+\vspace{-0.3em}
+
+% ----- About -----
+\section*{О себе}
+Магистрант МГТУ им. Н.Э. Баумана, ищу стажировку в DevOps/SRE. Интересуюсь компьютерными сетями, автоматизацией развёртывания и отказоустойчивостью распределённых систем. Пятый год использую Linux как настольную ОС: Debian и дистрибутивы на базе Ubuntu.
+
+% ----- Skills ----
+\section*{Технический стек}
+
+\textbf{Языки:} Python, C/C++, C\#, Go, Lua
+
+\textbf{Базы данных:} PostgreSQL, Redis, MariaDB, Neo4j
+
+\textbf{DevOps \& CI/CD:} Docker, Docker Compose, GitHub Actions, Coveralls, SonarCloud; Kubernetes, Helm, Ingress
+
+\textbf{Сборка \& Окружение:} Linux, Git, CMake, Make, GDB
+
+\textbf{Сети:} TCP/IP, ARP, ICMP, DNS, DHCP, HTTP(S); VLAN, NAT/PAT, статическая маршрутизация; принципы STP, OSPF и BGP
+
+% ----- Projects -----
+\section*{Проекты}
+
+\subsection*{Развёртывание и отказоустойчивость микросервисной системы}
+\jobmeta{Учебный проект по курсу «Распределённые системы обработки информации», МГТУ им. Н.Э. Баумана}
+\begin{itemize}
+  \item Реализовал на Go систему взаимодействующих по HTTP/REST сервисов с единым API Gateway и отдельными логическими базами PostgreSQL.
+  \item Контейнеризировал сервисы и настроил локальную сборку и запуск приложения через Docker Compose.
+  \item Реализовал Circuit Breaker и fallback-ответы; откат операций при сбоях и очередь повторной обработки запросов.
+  \item Настроил в GitHub Actions сборку и тестирование приложения, сборку и публикацию Docker-образов, автоматический деплой сервисов в Kubernetes.
+  \item Развернул приложение в managed-кластере Kubernetes; подготовил параметризованный Helm chart для сервисов и настроил публикацию через Ingress.
+  \item Проверил взаимодействие сервисов интеграционными тестами и поведение системы при недоступности отдельных компонентов.
+\end{itemize}
+\stackline{Go, PostgreSQL, Docker, Docker Compose, GitHub Actions, Kubernetes, Helm, Ingress, Postman}
+% Add a link to your actual Go implementation here before sending the CV.
+% \repoline{\href{https://github.com/USERNAME/REPOSITORY}{github.com/USERNAME/REPOSITORY}}
+
+\subsection*{Тестирующая система для олимпиад по программированию (грантовый проект)}
+\jobmeta{Команда: 4 человека}
+\begin{itemize}
+  \item Разработал REST API на C\# для обработки решений, авторизации и взаимодействия с базой данных.
+  \item Настроил контейнеризацию сервисов с помощью Docker и развёртывание системы; проект использовался на учебных сборах (около 30 участников).
+\end{itemize}
+\stackline{C\#, REST API, Docker, PostgreSQL, React}
+
+% ----- Experience -----
+\section*{Опыт работы}
+
+\subsection*{Разработчик --- оплачиваемая учебная практика}
+\jobmeta{3 месяца, вуз}
+Разработал приложение для расчёта параметров раскроя заготовки по STL/DXF-модели, автоматизировав расчёт, ранее выполнявшийся вручную. Реализовал потоковый парсер STL, алгоритмы вычислительной геометрии и GUI с 3D-визуализацией и кэшированием геометрии.
+\stackline{Python, NumPy, Numba, SciPy, PySide6, VTK}
+\repoline{\href{https://github.com/alyoksi/stl-metrics}{github.com/alyoksi/stl-metrics}}
+
+\subsection*{Лектор --- Олимпиадные школы МФТИ}
+\jobmeta{Сезонные смены: две летние и одна зимняя}
+Читал лекции по алгоритмам и структурам данных для школьников и студентов, составлял задачи для тренировок и туров.
+
+% ----- Achievements -----
+\section*{Достижения}
+\begin{itemize}
+  \item Дважды призёр полуфинала ICPC.
+  \item Призёр Чемпионата Урала по программированию, дважды призёр Чемпионата RuCode.
+\end{itemize}
+
+% ----- Education -----
+\section*{Образование}
+
+\begin{minipage}[c]{0.08\textwidth}
+    \centering
+    \universitylogo{../images/bmstu_logo.jpg}
+\end{minipage}%
+\begin{minipage}[c]{0.92\textwidth}
+    \textbf{Магистратура, Программная инженерия (09.04.04)} --- МГТУ им. Н.Э. Баумана, Москва, 2026--2028 (текущее обучение)\\
+    \textit{Специализация:} Программно-алгоритмическое обеспечение систем ИИ
+\end{minipage}
+
+\vspace{0.4em}
+
+\begin{minipage}[c]{0.08\textwidth}
+    \centering
+    \universitylogo{../images/petrsu_logo.png}
+\end{minipage}%
+\begin{minipage}[c]{0.92\textwidth}
+    \textbf{Бакалавриат, Программная инженерия (09.03.04)} --- Петрозаводский государственный университет, выпуск 2026\\
+    \textit{Профиль:} Системное и прикладное программное обеспечение
+\end{minipage}
+
+\vspace{0.5em}
+\textbf{Доп. образование:} Компьютерные сети (видеолекции и онлайн-курс по eNSP).
+
+% ----- Languages -----
+\section*{Языки}
+Английский --- B2 \quad\textbullet\quad Финский --- A1
+
+\end{document}
